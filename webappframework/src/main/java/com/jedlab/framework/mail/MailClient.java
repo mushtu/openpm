@@ -184,17 +184,20 @@ public class MailClient
         {
             String text = VelocityEngineUtils.mergeTemplateIntoString(velocityEngine, templateLocation, "UTF-8", model);
             MimeMessageHelper message = new MimeMessageHelper(mimeMessage);
+            if (attachmentPath != null  && attachmentName.trim().length() > 0)
+            {
+                message = new MimeMessageHelper(mimeMessage,true);
+                FileSystemResource file = new FileSystemResource(attachmentPath);
+                message.addAttachment(attachmentName, file);
+
+            }
+            if(ccList.length > 0) {
+                message.setCc(ccList);
+            }
             message.setFrom(from);
             message.setTo(to);
             message.setSubject(subject);
             message.setText(text, true);
-            if(ccList.length > 0)
-                message.setCc(ccList);
-            if (attachmentPath != null  && attachmentName.trim().length() > 0)
-            {
-                FileSystemResource file = new FileSystemResource(attachmentPath);
-                message.addAttachment(attachmentName, file);
-            }
         }
 
     }
