@@ -3,11 +3,11 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.jedlab.springfaces</groupId>
-	<artifactId>framework</artifactId>
+	<artifactId>framework-boot-mvc</artifactId>
 	<version>2.0.1</version>
 	<packaging>jar</packaging>
 
-	<name>framework</name>
+	<name>framework-boot-mvc</name>
 	<url>http://omidbiz.com</url>
 
 	<properties>
